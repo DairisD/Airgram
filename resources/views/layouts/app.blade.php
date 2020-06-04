@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div><img src="/svg/airgram_logo.svg" style="height: 20px" class="pr-3"></div>
                     <div class="pl-3" style="border-left: 1px solid #333">AirGram</div>
                 </a>
