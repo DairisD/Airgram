@@ -55,6 +55,10 @@
                 border: 2px solid #525252 ;
             }
 
+            .links > a:hover {
+                background-color: #f8f8f8;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
