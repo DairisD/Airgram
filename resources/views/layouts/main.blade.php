@@ -20,5 +20,5 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    
+    @yield('content')
 </body>
