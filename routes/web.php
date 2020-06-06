@@ -20,6 +20,11 @@ Route::get('/', function () {
 Route::get('/search', function() {
     return view('search');
 });
+
+Route::get('/comments', function() {
+    return view('comments');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
