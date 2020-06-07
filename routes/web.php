@@ -45,6 +45,9 @@ Route::get('/followers', function() {
     return view('followers');
 });
 
+Route::get('/edit', function() {
+    return view('edit');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
