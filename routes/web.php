@@ -48,6 +48,11 @@ Route::get('/followers', function() {
 Route::get('/edit', function() {
     return view('edit');
 });
+
+Route::get('/profile', function() {
+    return view('profile');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
