@@ -25,9 +25,12 @@ Route::get('/comments', function() {
     return view('comments');
 });
 
-
 Route::get('/banned', function() {
     return view('banned');
+});
+
+Route::get('/blocked', function() {
+    return view('blocked');
 });
 
 
