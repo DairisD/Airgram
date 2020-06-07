@@ -37,6 +37,14 @@ Route::get('/ban', function() {
     return view('ban');
 });
 
+Route::get('/following', function() {
+    return view('following');
+});
+
+Route::get('/followers', function() {
+    return view('followers');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
