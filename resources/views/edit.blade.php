@@ -26,5 +26,6 @@
             <button class="col-12 btn-lg mb-3" type="submit">Save profile</button>
         </div>
     </form>
+    
 </div>
 @endsection
