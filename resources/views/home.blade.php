@@ -42,9 +42,31 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div style="font-size: 20px;">
-                    <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12" style="font-size: 20px">Remove Post</button>
+                    <div class="row p-2" style="background-color: #ebebeb">
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Model:</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Airport:</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Airline:</p>
+                        </div>
+                    </div>
+                    <div class="row p-2" style="background-color: #ebebeb">
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">A330</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">EGLL</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Air France</p>
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-1"></div>
