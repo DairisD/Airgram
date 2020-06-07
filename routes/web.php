@@ -33,6 +33,9 @@ Route::get('/blocked', function() {
     return view('blocked');
 });
 
+Route::get('/ban', function() {
+    return view('ban');
+});
 
 Auth::routes();
 
