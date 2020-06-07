@@ -25,6 +25,12 @@ Route::get('/comments', function() {
     return view('comments');
 });
 
+
+Route::get('/banned', function() {
+    return view('banned');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
