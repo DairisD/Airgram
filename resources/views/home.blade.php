@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+<style>
+    button:hover {
+        background-color: #adadad;
+    }
+</style>
 <div class="container-fluid">
         <div class="row d-flex" style="margin: 50px 0px">
             <div class="col-6">
@@ -37,6 +42,9 @@
                             </button>
                         </div>
                     </div>
+                </div>
+                <div style="font-size: 20px;">
+                    <button type="button" class="align-content-center p-2 col-12">Remove post</button>
                 </div>
             </div>
             <div class="col-sm-1"></div>
