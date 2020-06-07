@@ -36,7 +36,9 @@ Route::get('/blocked', function() {
 Route::get('/ban', function() {
     return view('ban');
 });
-
+Route::get('/edit', function() {
+    return view('edit');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
