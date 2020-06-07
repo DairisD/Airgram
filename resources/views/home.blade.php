@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div style="font-size: 20px;">
-                    <button type="button" class="align-content-center p-2 col-12">Remove post</button>
+                    <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12" style="font-size: 20px">Remove Post</button>
                 </div>
             </div>
             <div class="col-sm-1"></div>
