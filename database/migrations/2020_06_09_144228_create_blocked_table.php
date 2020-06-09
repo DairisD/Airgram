@@ -15,6 +15,8 @@ class CreateBlockedTable extends Migration
     {
         Schema::create('blocked', function (Blueprint $table) {
             $table->id();
+            $table->foreign('blocker_id')->references('id')->on('users');
+            $table->foreign('blocked_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
