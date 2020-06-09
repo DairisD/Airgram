@@ -15,8 +15,8 @@ class CreateVotesTable extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('User_ID')->constrained();
-            $table->foreignID('Image_ID')->constrained();
+            $table->foreignID('user_ID')->constrained();
+            $table->foreignID('image_ID')->constrained();
         });
     }
 

@@ -15,7 +15,7 @@ class CreateAirlinesTable extends Migration
     {
         Schema::create('airlines', function (Blueprint $table) {
             $table->id();
-            $table->string('Nosaukums');
+            $table->string('name');
         });
     }
 

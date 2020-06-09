@@ -15,11 +15,11 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('User_ID')->constrained();
-            $table->foreignID('Model_ID')->constrained();
-            $table->foreignID('Airline_ID')->constrained();
-            $table->foreignID('Airport_ID')->constrained();
-            $table->string('Image');
+            $table->foreignID('user_ID')->constrained();
+            $table->foreignID('model_ID')->constrained();
+            $table->foreignID('airline_ID')->constrained();
+            $table->foreignID('airport_ID')->constrained();
+            $table->string('image');
         });
     }
 
