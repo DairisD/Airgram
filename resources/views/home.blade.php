@@ -42,9 +42,31 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div style="font-size: 20px;">
-                    <button type="button" class="align-content-center p-2 col-12">Remove post</button>
+                    <div class="row p-2" style="background-color: #ebebeb">
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Model:</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Airport:</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Airline:</p>
+                        </div>
+                    </div>
+                    <div class="row p-2" style="background-color: #ebebeb">
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">A330</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">EGLL</p>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <p class="mb-0" style="font-size: 20px;">Air France</p>
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-1"></div>
@@ -87,6 +109,14 @@
                             <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                         </svg>    
                         <p style="font-size: 20px; margin:0px;">Search</p>
+                    </button>
+                </div>
+                <div class="row w-100 d-flex justify-content-center mt-2 ">
+                    <button class="w-75 d-flex justify-content-center align-content-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
+                        <svg class="bi bi-gear-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z"/>
+                        </svg>    
+                        <p style="font-size: 20px; margin:0px;">Edit Profile</p>
                     </button>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2 ">
