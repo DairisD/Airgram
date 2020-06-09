@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     public function user() { // FK relationship
-        return $this->belongsTo('App\User', 'user_ID');
+        return $this->belongsTo('App\User', 'user_id');
     }
     public function plane() {
-        return $this->belongsTo('App\Plane', 'plane_ID');
+        return $this->belongsTo('App\Plane', 'plane_id');
     }
     public function airline() { // FK relationship
-        return $this->belongsTo('App\Airline', 'airline_ID');
+        return $this->belongsTo('App\Airline', 'airline_id');
     }
     public function airport() { // FK relationship
-        return $this->belongsTo('App\Airport', 'airport_ID');
+        return $this->belongsTo('App\Airport', 'airport_id');
     }
 }
