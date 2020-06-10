@@ -17,11 +17,19 @@ class PostsController extends Controller
 
     public function store() {
        
-        $data = request()->validate([
+        $image = request()->validate([
             'image' => ['required', 'image'],
         ]);
 
-        auth()->user()->image()->store($data);
+        $plane = Plane::firstOrNew(['plane' => request('plane')]);
+        $airport = Airport::firstOrNew(['airport' => request('airport')]);
+        $airline = Airline::firstOrNew(['airline' => request('airline')]);
+
+        $data->plane = $plane->id;
+        $data->airport = $airport->id;
+        $data->airline = $airline->id;
+
+        auth()->user()->image()->create($data);
 
         request('image')->store('post_images', 'public');
     }

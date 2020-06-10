@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-5 ">
-                    <a href="{{ url('/post') }}" class="w-75 d-flex justify-content-center align-content-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
+                    <a href="{{ url('/post/create') }}" class="w-75 d-flex justify-content-center align-content-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
                         <svg class="bi bi-plus-square mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
                             <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>

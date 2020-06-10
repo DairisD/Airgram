@@ -38,26 +38,26 @@ class User extends Authenticatable
     ];
 
     public function role() {
-        return $this->belongsTo('App/Role');
+        return $this->belongsTo('App\Role');
     }
 
     public function follow() {
-        return $this->hasMany('App/Follow');
+        return $this->hasMany('App\Follow');
     }
 
     public function block() {
-        return $this->hasMany('App/Block');
+        return $this->hasMany('App\Block');
     }
 
     public function vote() {
-        return $this->hasMany('App/Vote');
+        return $this->hasMany('App\Vote');
     }
 
     public function comment() {
-        return $this->hasMany('App/Comment');
+        return $this->hasMany('App\Comment');
     }
 
     public function image() {
-        return $this->hasMany('App/Image');
+        return $this->hasMany('App\Image');
     }
 }

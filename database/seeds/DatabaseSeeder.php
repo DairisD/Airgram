@@ -11,6 +11,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@airgram.test',
+            'username' => 'administrator_felix',
+            'password' => Hash::make('qwertyuiop'),
+            'role' => '1',
+        ]);
+        
+        DB::table('planes')->insert([
+            'name' => 'unknown',
+        ]);
+
+        DB::table('airports')->insert([
+            'name' => 'unknown',
+        ]);
+
+        DB::table('airlines')->insert([
+            'name' => 'unknown',
+        ]);
     }
 }
