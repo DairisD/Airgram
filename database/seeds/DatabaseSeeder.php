@@ -18,17 +18,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('qwertyuiop'),
             'role' => '1',
         ]);
-        
-        DB::table('planes')->insert([
-            'name' => 'unknown',
-        ]);
-
-        DB::table('airports')->insert([
-            'name' => 'unknown',
-        ]);
-
-        DB::table('airlines')->insert([
-            'name' => 'unknown',
-        ]);
     }
 }

@@ -37,15 +37,15 @@ class PostsController extends Controller
         $airport = new Airport;
     
         if(request('plane')) {
-            $plane = Plane::firstOrNew(['name' => request('plane')]);
+            $plane = Plane::firstOrNew(['plane_name' => request('plane')]);
             $plane->save();
         }
         if(request('airport')) {
-            $airport = Airport::firstOrNew(['name' => request('airport')]);
+            $airport = Airport::firstOrNew(['airport_name' => request('airport')]);
             $airport->save();
         }
         if(request('airline')) {
-            $airline = Airline::firstOrNew(['name' => request('airline')]);
+            $airline = Airline::firstOrNew(['airline_name' => request('airline')]);
             $airline->save();
         } 
         
