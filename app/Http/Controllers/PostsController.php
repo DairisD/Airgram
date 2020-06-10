@@ -28,7 +28,7 @@ class PostsController extends Controller
 
         $image = $request->file('image');
         $input['image'] = time(). '.'. $image->getClientOriginalExtension();
-        $destinationPath = public_path('post_images');
+        $destinationPath = storage_path('\app\public\post_images');
         $image->move($destinationPath, $input['image']);
         $path = $destinationPath.'/'.$input['image'];
 
