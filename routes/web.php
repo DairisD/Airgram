@@ -56,6 +56,9 @@ Route::get('/edit', function() {
     return view('edit');
 });
 
+Route::get('/edit/{user}', 'EditController@edit');
+Route::patch('/edit/{user}', 'EditController@update');
+
 Route::get('/profile', function() {
     return view('profile');
 });
