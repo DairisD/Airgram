@@ -3,9 +3,9 @@
 @section('content')
 <div class="row mt-3 pl-3 pr-3">
     <div class="col-2">
-        <button type="button" class="btn btn-outline-secondary">
+        <a href="{{ url('/home') }}" type="button" class="btn btn-outline-secondary">
             Back
-        </button>
+        </a>
     </div>
     <div class="col-8 d-flex justify-content-center al">
         <h2 class="mb-0 pb-0">Blocked Users</h2>

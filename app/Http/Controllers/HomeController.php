@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        $followers = DB::table('follows')->where('following_id', Auth::id())->count();
+        $following = DB::table('follows')->where('follower_id', Auth::id())->count();
+
+        return view('home', [
+            'user' => $user,
+            'followers' => $followers,
+            'following' => $following,
+        ]);
     }
 }

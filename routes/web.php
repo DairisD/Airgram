@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('logout', 'Auth\LoginController@logout', function () {
+    return abort(404);
+});
+
+Route::get('/post/create', 'PostsController@create');
+Route::post('/post', 'PostsController@store');
+
 Route::get('/search', function() {
     return view('search');
 });
@@ -51,9 +58,6 @@ Route::get('/edit', function() {
 
 Route::get('/profile', function() {
     return view('profile');
-});
-Route::get('/post', function() {
-    return view('post');
 });
 
 Auth::routes();

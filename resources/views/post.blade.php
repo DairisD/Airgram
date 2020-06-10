@@ -12,18 +12,19 @@
     <div class="col-2"></div>
 </div>
 <div class="container">
-    <form class="form-group">
+    <form class="form-group" action="/post" method="POST">
+        @csrf
         <div class="row offset-1">
-            <label for="Name" class="col-md-4 col-form-label">Model</label>
-            <input id="Name" type="text" value="" class="col-11 form-control" autocomplete="off">
+            <label for="model" class="col-md-4 col-form-label">Plane</label>
+            <input id="model" type="text" value="" class="col-11 form-control" autocomplete="off">
         </div>
         <div class="row offset-1">
-            <label for="Name" class="col-md-4 col-form-label">Airport</label>
-            <input id="Name" type="text" value="" class="col-11 form-control" autocomplete="off">
+            <label for="airport" class="col-md-4 col-form-label">Airport</label>
+            <input id="airport" type="text" value="" class="col-11 form-control" autocomplete="off">
         </div>
         <div class="row offset-1">
-            <label for="Name" class="col-md-4 col-form-label">Airline</label>
-            <input id="Name" type="text" value="" class="col-11 form-control" autocomplete="off">
+            <label for="airline" class="col-md-4 col-form-label">Airline</label>
+            <input id="airline" type="text" value="" class="col-11 form-control" autocomplete="off">
         </div>
         <div class="row offset-1">
             <label for="image" class="col-md-4 col-form-label">Post Image</label>
