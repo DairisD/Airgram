@@ -63,6 +63,8 @@ Route::get('/profile', function() {
     return view('profile');
 });
 
+Route::get('profile/{user}', 'ProfileController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

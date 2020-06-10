@@ -48,27 +48,28 @@
             <div class="col-sm-1"></div>
             <div class="col-4" style="background-color: #eeeeee">
                 <div class="row d-flex align-items-center justify-content-md-center" style="height: 150px; text-align:center">
-                        <img src="/img/default_profile.jpg" class="rounded-circle h-75">
+                        <img src="../{{$user->profile_picture}}" class="rounded-circle h-75">
                 </div>
                 <div class="row d-flex align-items-center">
                     <div class="ml-3 mt-3 w-100">
-                        <h2>Dairis Dombrovskis</h2>
+                        <h2>{{$user->name}}</h2>
                     </div>
                     <div class="ml-3 w-100">
-                        <p style="font-size: 20px;">@riga_aviospot</p>
+                        <p style="font-size: 20px;">&#64;{{$user->username}}</p>
                     </div>
                 </div>
                 <div class="row ml-2" style="font-size: 20px; font-weight: bold">
                     <div class="col">
-                        <div class="row">2.4k</div>
+                        <div class="row">{{ $followers }}</div>
                         <div class="row">Followers</div>
                     </div>
                     <div class="col">
-                        <div class="row">953</div>
+                        <div class="row">{{$following}}</div>
                         <div class="row">Following</div>
                     </div>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">
+                    @if ($test==false)
                     <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
                         <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
@@ -76,6 +77,15 @@
                           </svg>   
                         <p style="font-size: 20px; margin:0px;">Follow</p>
                     </button>
+                    @endif
+                    @if ($test==true)
+                    <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
+                        <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5-.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <p style="font-size: 20px; margin:0px;">Unfollow</p>
+                    </button>
+                    @endif
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">
                     <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
@@ -85,6 +95,7 @@
                         <p style="font-size: 20px; margin:0px;">Block User</p>
                     </button>
                 </div>
+                @if($admin->role == '1')
                 <div class="row w-100 d-flex justify-content-center mt-2 mb-3">
                     <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
                         <svg class="bi bi-x-octagon-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#bd0000" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +104,7 @@
                         <p style="font-size: 20px; margin:0px;">Ban User</p>
                     </button>
                 </div>
+                @endif
             </div>
         </div>
 </div>
