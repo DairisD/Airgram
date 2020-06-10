@@ -3,9 +3,7 @@
 @section('content')
 <div class="row mt-3 pl-3 pr-3">
     <div class="col-2">
-        <button type="button" class="btn btn-outline-secondary">
-            Back
-        </button>
+        <a href="{{{ URL::route('home') }}}" type="button" class="btn btn-outline-secondary">Back</a>
     </div>
     <div class="col-10"></div>
 </div>

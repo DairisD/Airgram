@@ -24,9 +24,7 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
 Route::get('/post/create', 'PostsController@create');
 Route::post('/post', 'PostsController@store');
 
-Route::get('/search', function() {
-    return view('search');
-});
+Route::get('/search', 'SearchesController@index');
 
 Route::get('/comments', function() {
     return view('comments');
