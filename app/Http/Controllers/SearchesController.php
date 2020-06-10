@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use DB;
 
 class SearchesController extends Controller
 {
@@ -10,9 +12,18 @@ class SearchesController extends Controller
         return view('search');
     }
 
-    public function show() {
-        $data = request()->all();
+    public function posts() {
+        $votes = DB::table('votes')->select('user_id')->sum('votes')->groupBy('votes');
+        return view('search', [
+            'search' => $search,
+            'data' => $data,
+        ]);
+    }
 
-        dd($data);
+    public function users() {
+        $users = DB::table('users')->where('username', request('username'))->get()->flatten();
+        return view('search', [
+            'users' => $users,
+        ]);
     }
 }

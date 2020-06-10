@@ -25,6 +25,8 @@ Route::get('/post/create', 'PostsController@create');
 Route::post('/post', 'PostsController@store');
 
 Route::get('/search', 'SearchesController@index');
+Route::get('/search/posts', 'SearchesController@posts');
+Route::get('/search/users', 'SearchesController@users');
 
 Route::get('/comments', function() {
     return view('comments');
