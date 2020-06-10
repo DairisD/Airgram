@@ -50,5 +50,7 @@ class PostsController extends Controller
         $temp['airline_id'] = $airline->id;
 
         auth()->user()->image()->create($temp);
+
+        return redirect('home');
     }
 }
