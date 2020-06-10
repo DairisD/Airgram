@@ -18,13 +18,19 @@ class PostsController extends Controller
         return view('post');
     }
 
-    public function store() {
+    public function store(Request $request) {
        
         $data = request()->validate([
             'image' => ['required', 'image'],
         ]);
 
-        request('image')->store('post_images', 'public');
+        //request('image')->store('post_images', 'public');
+
+        $image = $request->file('image');
+        $input['image'] = time(). '.'. $image->getClientOriginalExtension();
+        $destinationPath = public_path('post_images');
+        $image->move($destinationPath, $input['image']);
+        $path = $destinationPath.'/'.$input['image'];
 
         $plane = new Plane;
         $airline = new Airline;
@@ -44,7 +50,7 @@ class PostsController extends Controller
         } 
         
         
-        $temp['image'] = $data['image'];
+        $temp['image'] = $path;
         $temp['plane_id'] = $plane->id;
         $temp['airport_id'] = $airport->id;
         $temp['airline_id'] = $airline->id;
