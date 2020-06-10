@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Plane;
+use App\Airline;
+use App\Airport;
 
 class PostsController extends Controller
 {
@@ -17,20 +20,35 @@ class PostsController extends Controller
 
     public function store() {
        
-        $image = request()->validate([
+        $data = request()->validate([
             'image' => ['required', 'image'],
         ]);
 
-        $plane = Plane::firstOrNew(['plane' => request('plane')]);
-        $airport = Airport::firstOrNew(['airport' => request('airport')]);
-        $airline = Airline::firstOrNew(['airline' => request('airline')]);
-
-        $data->plane = $plane->id;
-        $data->airport = $airport->id;
-        $data->airline = $airline->id;
-
-        auth()->user()->image()->create($data);
-
         request('image')->store('post_images', 'public');
+
+        $plane = new Plane;
+        $airline = new Airline;
+        $airport = new Airport;
+    
+        if(request('plane')) {
+            $plane = Plane::firstOrNew(['name' => request('plane')]);
+            $plane->save();
+        }
+        if(request('airport')) {
+            $airport = Airport::firstOrNew(['name' => request('airport')]);
+            $airport->save();
+        }
+        if(request('airline')) {
+            $airline = Airline::firstOrNew(['name' => request('airline')]);
+            $airline->save();
+        } 
+        
+        
+        $temp['image'] = $data['image'];
+        $temp['plane_id'] = $plane->id;
+        $temp['airport_id'] = $airport->id;
+        $temp['airline_id'] = $airline->id;
+
+        auth()->user()->image()->create($temp);
     }
 }
