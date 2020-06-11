@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Image;
+use Redirect;
 
 class HomeController extends Controller
 {
@@ -56,9 +58,8 @@ class HomeController extends Controller
     }
 
     public function remove($post) {
-        $user = Auth::user();
 
-        $deleteable = Image::find($post);
+        $deleteable = Image::findOrFail($post);
         $deleteable->delete();
 
         return Redirect::to('/home');

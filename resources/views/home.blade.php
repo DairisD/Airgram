@@ -70,8 +70,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form action="/home/{$post}" method="POST" class="w-100">    
-                            <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+                        <form action="/home/{{ $post->image_id }}" method="POST" class="w-100">
+                            @csrf    
+                            <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
                         </form>
                     </div>
                 </div>
