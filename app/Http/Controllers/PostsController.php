@@ -27,10 +27,9 @@ class PostsController extends Controller
         //request('image')->store('post_images', 'public');
 
         $image = $request->file('image');
-        $input['image'] = time(). '.'. $image->getClientOriginalExtension();
-        $destinationPath = storage_path('app\public\post_images');
-        $image->move($destinationPath, $input['image']);
-        $path = $destinationPath.'/'.$input['image'];
+        $imageName = time().'.'.$image->extension();
+        $imagePath=$image->move(public_path('user_images'), $imageName);
+        $image ="/user_images/".$imageName;
 
         $plane = new Plane;
         $airline = new Airline;
@@ -50,7 +49,7 @@ class PostsController extends Controller
         } 
         
         
-        $temp['image'] = $path;
+        $temp['image'] = $image;
         $temp['plane_id'] = $plane->id;
         $temp['airport_id'] = $airport->id;
         $temp['airline_id'] = $airline->id;
