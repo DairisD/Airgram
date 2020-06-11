@@ -82,8 +82,7 @@
                             <p style="font-size: 20px; margin:0px;">Follow</p>
                         </button>
                     </form>
-                    @endif
-                    @if ($test==true)
+                    @elseif ($test==true)
                     <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
                         @csrf
                         @method('POST')
