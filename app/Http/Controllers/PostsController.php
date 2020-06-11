@@ -24,12 +24,10 @@ class PostsController extends Controller
             'image' => ['required', 'image'],
         ]);
 
-        //request('image')->store('post_images', 'public');
-
         $image = $request->file('image');
         $imageName = time().'.'.$image->extension();
-        $imagePath=$image->move(public_path('user_images'), $imageName);
-        $image ="/user_images/".$imageName;
+        $imagePath=$image->move(public_path('post_images'), $imageName);
+        $image ="/post_images/".$imageName;
 
         $plane = new Plane;
         $airline = new Airline;

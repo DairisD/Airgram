@@ -63,7 +63,11 @@
                         <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
                     </svg>
                 </button>
+                @if($result->summa)
                 <div class="d-flex align-content-center p-2" style="margin-bottom: 0px; font-size: 20px;">{{ $result->summa }}</div>
+                @else
+                <div class="d-flex align-content-center p-2" style="margin-bottom: 0px; font-size: 20px;">0</div>
+                @endif
                 <button style="border: none; background-color: #ebebeb">
                     <svg class="bi bi-arrow-down" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 0 1 .708 0L8 12.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
@@ -116,7 +120,8 @@
 @endif
 @endif
 @if(Request::is('search/users'))
-    @if($users)
+    @empty($users)
+    @else
     <div class="container mt-3 w-50" style="background-color: #eeeeee">
         <div class="row pt-2 pb-2">
             <div class="col-4 d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
@@ -129,6 +134,6 @@
             </div>
         </div>
     </div>
-    @endif
+    @endempty
 @endif
 @endsection
