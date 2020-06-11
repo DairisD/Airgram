@@ -62,7 +62,10 @@ Route::get('/profile', function() {
     return view('profile');
 });
 
-Route::get('profile/{user}', 'ProfileController@index');
+Route::get('profile/{user}', 'ProfileController@index')->name('profile');
+Route::patch('profile/{user}', 'ProfileController@store')->name('follow'); 
+Route::post('profile/{user}', 'ProfileController@delete')->name('unfollow'); 
+//Route::patch('profile/{user}', 'BannedController@edit')->name('banned');
 
 Auth::routes();
 
