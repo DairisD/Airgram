@@ -74,7 +74,7 @@
             <div class="col-sm-1"></div>
             <div class="col-4" style="background-color: #eeeeee">
                 <div class="row d-flex align-content-center justify-content-md-center" style="height: 150px; text-align:center">
-                        <img src="{{ url($user->profile_picture) }}" class="rounded-circle h-75">
+                        <img src="../{{$user->profile_picture }}" class="rounded-circle h-75">
                 </div>
                 <div class="row d-flex align-content-center">
                     <div class="ml-3 mt-3 w-100">

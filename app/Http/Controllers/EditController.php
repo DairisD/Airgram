@@ -21,18 +21,11 @@ class EditController extends Controller
         ]);
         if (request('profile_picture')) {
             $imageName = time().'.'.$data['profile_picture']->extension();
-            $imagePath=$data['profile_picture']->move(public_path('storage'), $imageName);
-            //$imagePath = request('profile_picture')->store('user_images', 'public');
-            $image = Image::make($imagePath)->fit(1000,1000);
-            $image->save();
-            array_merge($data, ['profile_picture'=>$imagePath]);
+            $imagePath=$data['profile_picture']->move(public_path('storage/app/public/user_images'), $imageName);
+            $data['profile_picture']='storage/app/public/user_images/'.$imageName;
         }
-        $data['profile_picture']=$imagePath;
-
-        //dd($data['profile_picture']->move(public_path('storage'), $imageName));
-        auth()->$user->profile_picture=$data['profile_picture'];
-        dd($user->profile_picture);
-        //dd($user->profile_picture);
+        //dd($imagePath);
+        auth()->user()->update($data);
         return redirect('home');
     }
 }
