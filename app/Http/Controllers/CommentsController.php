@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Comment;
 
 class CommentsController extends Controller
 {
@@ -24,7 +25,7 @@ class CommentsController extends Controller
 
     public function create($id) {
 
-        dd($requst->all());
+        //dd($reqeust->all());
 
         $text = request()->validate([
             'comment' => ['required', 'max:200']
