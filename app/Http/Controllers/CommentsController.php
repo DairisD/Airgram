@@ -10,6 +10,11 @@ use Redirect;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($id) {
 
         $post_id = $id;

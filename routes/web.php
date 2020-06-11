@@ -43,13 +43,8 @@ Route::get('/ban', function() {
     return view('ban');
 });
 
-Route::get('/following', function() {
-    return view('following');
-});
-
-Route::get('/followers', function() {
-    return view('followers');
-});
+Route::get('/following/{user}', 'FollowingController@index');
+Route::get('/followers/{user}', 'FollowersController@index');
 
 Route::get('/edit', function() {
     return view('edit');

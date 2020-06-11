@@ -93,12 +93,16 @@
                 </div>
                 <div class="row ml-2" style="font-size: 20px; font-weight: bold">
                     <div class="col">
+                        <a href='/followers/{{ $user->id }}'>
                         <div class="row">{{ $followers }}</div>
                         <div class="row">Followers</div>
+                        </a>
                     </div>
                     <div class="col">
-                        <div class="row">{{ $following }}</div>
-                        <div class="row">Following</div>
+                        <a href='/following/{{ $user->id}}'>
+                            <div class="row">{{ $following }}</div>
+                            <div class="row">Following</div>
+                        </a>
                     </div>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-5 ">
