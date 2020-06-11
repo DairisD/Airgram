@@ -6,7 +6,7 @@
 
 <div class="row d-flex justify-content-center pt-3 pl-3 pr-3">
     <div class="col-2">
-        <a href="{{{ URL::route('home') }}}" type="button" class="btn btn-outline-secondary">Back</a>
+        <a href="{{ URL::route('home') }}" type="button" class="btn btn-outline-secondary">Back</a>
     </div>
     <div class="col-8 d-flex justify-content-center">
         <h2 class="mb-0 mt-2">Search Posts</h2>

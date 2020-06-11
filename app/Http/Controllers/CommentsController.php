@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Comment;
+use Redirect;
 
 class CommentsController extends Controller
 {
@@ -17,31 +19,23 @@ class CommentsController extends Controller
         on users.id = sel.user_id");
 
         return view('comments', [
-            'id' => $id,
-            'comments' => $comments,
+            'id' => $post_id,
+            'results' => $comments,
         ]);
     }
 
     public function create($id) {
 
-        dd($requst->all());
-
         $text = request()->validate([
-            'comment' => ['required', 'max:200']
+            'message' => ['required', 'max:200']
         ]);
 
         $user = Auth::user();
 
-        $comment = new Comment;
-        $comment->user_id = $user->id;
-        $comment->image_id = $id;
-        $comment->comment = $text;
+        $comment = $text['message'];
 
-        $comment->save();
+        DB::insert("insert into comments (user_id, image_id, comment) values ('$user->id', '$id', '$comment')");
 
-        dd($comment);
-
-        return redirect('/comments/{{$id}}');
-
+        return Redirect::to('/comments/'.$id);
     }
 }

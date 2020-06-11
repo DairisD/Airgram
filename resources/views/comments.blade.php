@@ -19,13 +19,8 @@
         @csrf
         <div class="form-group d-flex flex-wrap">
             <div class="col-8 d-flex justify-content-center">
-                <input type="text" id="comment" name="comment" class="w-100">
+                <input type="text" id="message" name="message" class="w-100">
             </div>
-            @if($errors->has('image'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('comment') }}</strong>
-            </span>
-            @endif
             <div class="col-4 d-flex justify-content-center">
                 <button type="submit" class="btn btn-outline-secondary w-100">
                     Add Coment
@@ -34,21 +29,23 @@
         </div>
     </form>
 </div>
-@foreach($comments as $comment)
+@if($results)
+@foreach($results as $result)
 <div class="container mt-3" style="background-color: #eeeeee">
     <div class="row">
         <div class="col-4 pt-2 pb-2 d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
             <div class="col-4 d-flex justify-content-center">
-                <img src="{{ $comment->profile_picture }}" style="border-radius: 100%; max-height:50px;">
+                <img src="{{ $result->profile_picture }}" style="border-radius: 100%; max-height:50px;">
             </div>
             <div class="col-8 d-flex">
-                <h5 class="ml-2 mb-0">&#64;{{ $comment->username }}</h5>
+                <h5 class="ml-2 mb-0">&#64;{{ $result->username }}</h5>
             </div>
         </div>
         <div class="col-8 d-flex align-items-center">
-            <p class="mb-2 mt-2" style="font-size: 15px;">{{ $comment->comment }}</p>
+            <p class="mb-2 mt-2" style="font-size: 15px;">{{ $result->comment }}</p>
         </div>
     </div>
 </div>
 @endforeach
+@endif
 @endsection

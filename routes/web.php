@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
@@ -30,6 +28,7 @@ Route::get('/search/users', 'SearchesController@users');
 
 Route::get('/comments/{id}', 'CommentsController@index');
 Route::post('/comments/{id}', 'CommentsController@create');
+
 
 Route::get('/banned', function() {
     return view('banned');
