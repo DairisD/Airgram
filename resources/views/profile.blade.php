@@ -69,22 +69,31 @@
                     </div>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">
-                    @if ($test==false)
-                    <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
-                        <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                            <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
-                          </svg>   
-                        <p style="font-size: 20px; margin:0px;">Follow</p>
-                    </button>
+                    @if ($test==false)  
+                    <form method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                            <button type='submit' class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
+                            <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+                              </svg>   
+                            <p style="font-size: 20px; margin:0px;">Follow</p>
+                        </button>
+                    </form>
                     @endif
                     @if ($test==true)
-                    <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
-                        <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5-.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        <p style="font-size: 20px; margin:0px;">Unfollow</p>
-                    </button>
+                        <form method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+                            <button type='submit' class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
+                            <svg class="bi bi-person-plus-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#e8a600" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+                              </svg>   
+                            <p style="font-size: 20px; margin:0px;">Unfollow</p>
+                        </button>
+                    </form>
                     @endif
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">

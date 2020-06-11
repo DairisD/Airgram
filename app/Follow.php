@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Follow extends Model
 {
+    protected $fillable = ['follower_id', 'following_id'];
+    
     public function follower() {
         return $this->belongsTo('App/User', 'id', 'follower_id');
     }
