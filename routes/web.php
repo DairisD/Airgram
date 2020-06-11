@@ -70,3 +70,4 @@ Route::post('profile/{user}', 'ProfileController@delete')->name('unfollow');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/')
