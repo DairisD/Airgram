@@ -76,7 +76,7 @@
                 </button>
             </div>
             <div class="col-3">
-                <div class="p-2" style="font-size: 20px;">&#64;{{ $result->username }}</div>
+                <a href="/profile/{{$result->id}}" class="p-2" style="font-size: 20px;">&#64;{{ $result->username }}</a>
             </div>
             <div class="col d-flex justify-content-center">
                 <a href="/comments/{{ $result->image_id }}" class="d-flex align-items-center p-2" style="border: none; background-color: #ebebeb;">

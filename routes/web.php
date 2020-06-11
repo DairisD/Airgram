@@ -39,6 +39,10 @@ Route::get('/blocked', function() {
     return view('blocked');
 });
 
+Route::get('blocked', 'BlockController@index')->name('blocked');
+Route::patch('blocked', 'BlockController@edit');
+Route::post('blocked', 'BlockController@search');
+
 Route::get('/ban', function() {
     return view('ban');
 });
@@ -65,7 +69,6 @@ Route::post('profile/{user}/{image}', 'ProfileController@remove');
 Route::get('profile/{user}', 'ProfileController@index')->name('profile');
 Route::patch('profile/{user}', 'ProfileController@store')->name('follow'); 
 Route::post('profile/{user}', 'ProfileController@delete')->name('unfollow'); 
-//Route::patch('profile/{user}', 'BannedController@edit')->name('banned');
 
 Auth::routes();
 

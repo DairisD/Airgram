@@ -7,6 +7,13 @@
     </div>
     <div class="col-10"></div>
 </div>
+@if ($blocked == true)
+<div>
+    <div class="container mt-3 h-100 d-flex flex-column align-items-center">
+    <h5 class="display-3" style="color: #cc0000">You've been blocked by this user!</h5>
+</div>
+</div>
+@else
 <div class="container-fluid">
         <div class="row d-flex" style="margin: 50px 0px">
             <div class="col-6">
@@ -108,6 +115,7 @@
                     </div>
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">
+                    @if ($blocker==false)
                     @if ($test==false)  
                     <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
                         <input name='button' id='button' value='1' type='hidden'>
@@ -135,10 +143,14 @@
                         </button>
                     </form>
                     @endif
+                    @endif
                 </div>
+                @if($blocker==false)
                 <div class="row w-100 d-flex justify-content-center mt-2">
-                    <form enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
-                        <input name='button' id='button' value='1' type='hidden'>
+                    <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
+                        @csrf
+                        @method('PATCH')
+                        <input name='button' id='button' value='3' type='hidden'>
                         <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
                         <svg class="bi bi-x-circle-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#bd0000" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"/>
@@ -147,6 +159,21 @@
                     </button>
                     </form>
                 </div>
+                @elseif ($blocker==true)
+                <div class="row w-100 d-flex justify-content-center mt-2">
+                    <form  method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
+                        @csrf
+                        @method('POST')
+                        <input name='button' id='button' value='3' type='hidden'>
+                        <button class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
+                        <svg class="bi bi-x-circle-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#bd0000" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"/>
+                        </svg>    
+                        <p style="font-size: 20px; margin:0px;">Unblock User</p>
+                    </button>
+                    </form>
+                </div>
+                @endif
                 @if($admin->role == '1')
                 <div class="row w-100 d-flex justify-content-center mt-2 mb-3">
                     @if ($user->role == '0')
@@ -180,4 +207,5 @@
             </div>
         </div>
 </div>
+@endif
 @endsection

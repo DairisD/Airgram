@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Follow;
 use App\Image;
+use App\Block;
 use Redirect;
 
 class ProfileController extends Controller
@@ -37,10 +38,24 @@ class ProfileController extends Controller
         $followers = DB::table('follows')->where('following_id', $user->id)->count();
         $following = DB::table('follows')->where('follower_id', $user->id)->count();
         if ($isfollowing) {
-            $test=true;
+            $test1=true;
         }
         else {
-            $test=false;
+            $test1=false;
+        }
+        $isblocker = DB::table('blocked')->where('blocker_id', $admin->id)->where('blocked_id', $user->id)->count();
+        if ($isblocker) {
+            $test2=true;
+        }
+        else {
+            $test2=false;
+        }
+        $isblocked = DB::table('blocked')->where('blocker_id', $user->id)->where('blocked_id', $admin->id)->count();
+        if ($isblocked) {
+            $test3=true;
+        }
+        else {
+            $test3=false;
         }
         if ($admin->id==$user->id) {
             $followers = DB::table('follows')->where('following_id', Auth::id())->count();
@@ -51,11 +66,14 @@ class ProfileController extends Controller
                 'following' => $following,
             ]);
         }
+        
         else {
             return view('profile', [
                 'admin' => $admin,
                 'user' => $user,
-                'test' => $test,
+                'test' => $test1,
+                'blocker' => $test2,
+                'blocked' => $test3,
                 'followers' => $followers,
                 'following' => $following,
                 'posts' => $results,
@@ -100,16 +118,38 @@ class ProfileController extends Controller
             }
             return redirect()->route('profile',['user'=> $user->id]);
         }
+        else if ($check['button']==3) {
+            $data = request()->validate([
+                'blocker_id' => '',
+                'blocked_id' => '',
+            ]);
+            $viewer = Auth::user();
+            Follow::where('follower_id', $viewer->id)->where('following_id', $user->id)->delete();
+            if (DB::table('blocked')->where('blocker_id', $viewer->id)->where('blocked_id', $user->id)->count() == 0) {
+                DB::insert('insert into blocked (blocker_id, blocked_id) values (?,?)',[$viewer->id, $user->id]);
+            }
+            return redirect()->route('profile',['user'=> $user->id]);
+        }
+        else {
+            return redirect()->route('home');
+        }
     }
     public function delete(User $user) {
         $admin = Auth::user();
-        $data = request()->validate([
+        $check = request()->validate([
             'button'=>['required'],
         ]);
-        if ($data['button']==1) {
+        if ($check['button']==1) {
             Follow::where('follower_id', $admin->id)->where('following_id', $user->id)->delete();
             return redirect()->route('profile',['user'=> $user->id]);
 
+        }
+        else if ($check['button']==3) {
+            DB::table('blocked')->where('blocker_id', $admin->id)->where('blocked_id', $user->id)->delete();
+            return redirect()->route('profile',['user'=> $user->id]);
+        }
+        else {
+            return redirect()->route('home');
         }
     }
 
