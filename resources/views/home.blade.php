@@ -16,7 +16,8 @@
                     </div>
                     <div class="row p-2" style="background-color: #ebebeb">
                         <div class="col d-flex align-items-center">
-                            <button class="d-flex align-items-center" style=" border: none; background-color: #ebebeb;">
+                            <form action="/votepos/{{ $post->user_id }}/{{ $post->image_id }}"></form>
+                            <button type="submit" class="d-flex align-items-center" style=" border: none; background-color: #ebebeb;">
                                 <svg class="bi bi-arrow-up" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
                                     <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
@@ -27,12 +28,14 @@
                             @else
                             <div class="d-flex align-items-center p-2" style="margin-bottom: 0px; font-size: 20px;">0</div>
                             @endif
-                            <button class="d-flex align-items-center" style="border: none; background-color: #ebebeb;">
+                            <form action="/voteneg/{{ $post->user_id }}/{{ $post->image_id }}">
+                            <button type="submit" class="d-flex align-items-center" style="border: none; background-color: #ebebeb;">
                                 <svg class="bi bi-arrow-down" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M4.646 9.646a.5.5 0 0 1 .708 0L8 12.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
                                     <path fill-rule="evenodd" d="M8 2.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
                             </button>
+                            </form>
                         </div>
                         <div class="col-3">
                             <div class="p-2" style="font-size: 20px;">&#64;{{ $post->username }}</div>

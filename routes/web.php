@@ -71,3 +71,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/{post}', 'HomeController@remove');
+
+Route::post('/votepos/{user}/{image}', 'VotesController@inc');
+Route::post('/voteneg/{user}/{image}', 'VotesController@dec');
