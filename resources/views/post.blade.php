@@ -31,7 +31,7 @@
             <input id="image" name="image" type="file" class="col-3 form-control">
         </div>
         @if($errors->has('image'))
-            <span class="invlaid-feedback" role="alert">
+            <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('image') }}</strong>
             </span>
         @endif
