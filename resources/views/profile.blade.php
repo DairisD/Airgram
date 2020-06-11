@@ -71,9 +71,12 @@
                             <p class="mb-0" style="font-size: 20px;">{{ $post->airline_name }}</p>
                         </div>
                     </div>
-                    @if($user->role == '1')
-                    <div class="row">    
-                        <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+                    @if($admin->role == '1')
+                    <div class="row">
+                        <form action="/profile/{{ $post->user_id }}/{{ $post->image_id }}" method="POST" class="w-100">
+                            @csrf 
+                            <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+                        </form>
                     </div>
                     @endif
                 </div>
@@ -81,7 +84,8 @@
                 </div>
             </div>
             <div class="col-sm-1"></div>
-            <div class="col-4" style="background-color: #eeeeee">
+            <div class="col-4">
+                <div class="container pb-2" style="background-color: #eeeeee">
                 <div class="row d-flex align-items-center justify-content-md-center" style="height: 150px; text-align:center">
                         <img src="../{{$user->profile_picture}}" class="rounded-circle h-75">
                 </div>
@@ -172,6 +176,7 @@
                     @endif
                 </div>
                 @endif
+            </div>
             </div>
         </div>
 </div>

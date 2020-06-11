@@ -61,6 +61,7 @@ Route::get('/profile', function() {
     return view('profile');
 });
 
+Route::post('profile/{user}/{image}', 'ProfileController@remove');
 Route::get('profile/{user}', 'ProfileController@index')->name('profile');
 Route::patch('profile/{user}', 'ProfileController@store')->name('follow'); 
 Route::post('profile/{user}', 'ProfileController@delete')->name('unfollow'); 

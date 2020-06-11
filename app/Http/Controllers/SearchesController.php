@@ -58,6 +58,7 @@ class SearchesController extends Controller
         }
         dd($results);
         */
+
         $user = auth()->user();
         
 
@@ -74,7 +75,7 @@ class SearchesController extends Controller
             'username' => 'required',
         ]);
 
-        $users = DB::table('users')->where('username', $data['username'])->get()->flatten();
+        $users = DB::table('users')->where('username', $data['username'])->first();//->get()->flatten();
         return view('search', [
             'this_user' =>auth()->user(),
             'users' => $users,

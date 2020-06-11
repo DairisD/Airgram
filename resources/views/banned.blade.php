@@ -32,7 +32,7 @@
 <div class="container mt-3 w-50" style="background-color: #eeeeee">
     <div class="row pt-2 pb-2">
         <div class="col-sm d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
-            <img src="/img/default_profile.jpg" style="border-radius: 100%; max-height:50px;">
+            <img src="{{$user->profile_picture}}" style="border-radius: 100%; max-height:50px;">
             <h5 class="ml-2 mb-0">{{$user->name}}</h5>
         </div>
         <div class="col-sm d-flex align-items-center justify-content-center">

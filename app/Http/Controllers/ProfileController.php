@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Follow;
+use App\Image;
+use Redirect;
 
 class ProfileController extends Controller
 {
@@ -108,5 +110,14 @@ class ProfileController extends Controller
             return redirect()->route('profile',['user'=> $user->id]);
 
         }
+    }
+
+    public function remove($user, $image) {
+        $post = $image;
+
+        $deleteable = Image::find($post);
+        $deleteable->delete();
+
+        return Redirect::to('/profile/'.$user);
     }
 }
