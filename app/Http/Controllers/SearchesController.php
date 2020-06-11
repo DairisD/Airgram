@@ -19,7 +19,7 @@ class SearchesController extends Controller
 
     public function posts() {
 
-        $query = DB::select('select planeq.*, airline_name from airlines
+        $test = DB::select('select planeq.*, airline_name from airlines
         right join (select airportq.*, plane_name from planes
         right join (select userq.*, airports.airport_name from airports
         right join (select imageq.*, username, profile_picture from users
@@ -33,8 +33,17 @@ class SearchesController extends Controller
         $airport = request('airport');
         $airline = request('airline');
 
-        $results = DB::table($query);
-        dd($results);
+        $results = DB::select("select * from (select planeq.*, airline_name from airlines
+        right join (select airportq.*, plane_name from planes
+        right join (select userq.*, airports.airport_name from airports
+        right join (select imageq.*, username, profile_picture from users
+        join (select * from images left join (select image_id, sum(val) as summa FROM votes group by image_id) as s on images.id = s.image_id) as imageq
+        on users.id = imageq.user_id) as userq
+        on airports.id = userq.airport_id) as airportq
+        on airportq.plane_id = planes.id) as planeq
+        on airlines.id = planeq.airline_id) as final
+        where (plane_name = '$plane' or plane_name is null) and (airport_name = '$airport' or airport_name is null) and (airline_name = '$airline' or airline_name is null)"
+        );
 
 
         $user = auth()->user();

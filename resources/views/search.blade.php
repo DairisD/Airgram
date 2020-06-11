@@ -51,7 +51,7 @@
 @if(Request::is('search/posts'))
 @if($results)
     @foreach ($results as $result)
-    <div class="container bg-light">
+    <div class="container bg-light mt-2">
         <div class="row">
                 <img src="{{ $result->image }}" class="w-100">
         </div>
@@ -76,7 +76,7 @@
                 </button>
             </div>
             <div class="col-3">
-                <div class="p-2" style="font-size: 20px;">{{ $result->username }}</div>
+                <div class="p-2" style="font-size: 20px;">&#64;{{ $result->username }}</div>
             </div>
             <div class="col d-flex justify-content-center">
                 <button class="d-flex align-content-center p-2" style="border: none; background-color: #ebebeb;">

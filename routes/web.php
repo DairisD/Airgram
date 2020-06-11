@@ -28,9 +28,7 @@ Route::get('/search', 'SearchesController@index');
 Route::get('/search/posts', 'SearchesController@posts');
 Route::get('/search/users', 'SearchesController@users');
 
-Route::get('/comments', function() {
-    return view('comments');
-});
+Route::get('/comments/{id}', 'CommentsController@index');
 
 Route::get('/banned', function() {
     return view('banned');
