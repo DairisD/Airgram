@@ -144,7 +144,7 @@
                         </a>
                     </form>
                 </div>
-                @if($user->role == '1')
+
                     <div class="row w-100 d-flex justify-content-center mt-2">
                         <a href="{{ url('/blocked') }}" class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
                             <svg class="bi bi-x-circle-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#bd0000" xmlns="http://www.w3.org/2000/svg">
@@ -153,6 +153,7 @@
                             <p style="font-size: 20px; margin:0px;">Blocked users</p>
                         </a>
                     </div>
+                @if($user->role == '1')
                     <div class="row w-100 d-flex justify-content-center mt-2 mb-3">
                         <a href="{{ url('/banned') }}" class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px; background-color: #ffdada">
                             <svg class="bi bi-x-octagon-fill mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="#bd0000" xmlns="http://www.w3.org/2000/svg">

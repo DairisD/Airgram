@@ -7,8 +7,12 @@
             <img src="/img/sunset.jpg" style="width:100%" class="rounded-lg">
         </div>
         <div class="col-md-4 p-auto" style="border-left: 1px solid rgb(99, 99, 99)">
+            @if (session('message'))
+                <div class="alert alert-danger">{{ session('message') }}</div>
+            @endif
             <form method="POST" action="{{ route('login') }}">
                 @csrf
+                
 
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

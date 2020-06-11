@@ -45,6 +45,10 @@ Route::get('/ban', function() {
 
 Route::get('/following/{user}', 'FollowingController@index');
 Route::get('/followers/{user}', 'FollowersController@index');
+Route::get('banned', 'BannedController@index')->name('banned');
+
+Route::patch('banned', 'BannedController@edit');
+Route::post('banned', 'BannedController@search');
 
 Route::get('/edit', function() {
     return view('edit');

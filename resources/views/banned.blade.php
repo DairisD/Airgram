@@ -13,10 +13,12 @@
     <div class="col-2"></div>
 </div>
 <div class="container mt-3">
-    <form>
+    <form method="post" enctype="multipart/form-data">
         <div class="form-group d-flex flex-wrap">
+            @csrf
+            @method('POST')
             <div class="col-8 d-flex justify-content-center">
-                <input type="text" class="w-100">
+                <input name='name' id='name' type="text" class="w-100">
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <button type="submit" class="btn btn-outline-secondary w-100">
@@ -26,39 +28,22 @@
         </div>
     </form>
 </div>
+@foreach ($bannedusers as $user)
 <div class="container mt-3 w-50" style="background-color: #eeeeee">
     <div class="row pt-2 pb-2">
         <div class="col-sm d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
             <img src="/img/default_profile.jpg" style="border-radius: 100%; max-height:50px;">
-            <h5 class="ml-2 mb-0">@username</h5>
+            <h5 class="ml-2 mb-0">{{$user->name}}</h5>
         </div>
         <div class="col-sm d-flex align-items-center justify-content-center">
-            <button type="button" class="btn btn-outline-danger w-75">Unban User</button>
+            <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
+                @csrf
+                @method('PATCH')
+                <input name='id' id='id' value='{{$user->id}}' type='hidden'>
+                <button type="submit" class="btn btn-outline-danger w-75">Unban User</button>
+            </form>
         </div>
     </div>
-</div>
-
-<div class="container mt-3 w-50" style="background-color: #eeeeee">
-    <div class="row pt-2 pb-2">
-        <div class="col-sm d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
-            <img src="/img/default_profile.jpg" style="border-radius: 100%; max-height:50px;">
-            <h5 class="ml-2 mb-0">@username</h5>
-        </div>
-        <div class="col-sm d-flex align-items-center justify-content-center">
-            <button type="button" class="btn btn-outline-danger w-75">Unban User</button>
-        </div>
-    </div>
-</div>
-
-<div class="container mt-3 w-50" style="background-color: #eeeeee">
-    <div class="row pt-2 pb-2">
-        <div class="col-sm d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
-            <img src="/img/default_profile.jpg" style="border-radius: 100%; max-height:50px;">
-            <h5 class="ml-2 mb-0">@username</h5>
-        </div>
-        <div class="col-sm d-flex align-items-center justify-content-center">
-            <button type="button" class="btn btn-outline-danger w-75">Unban User</button>
-        </div>
-    </div>
-</div>
+</div
+@endforeach
 @endsection
