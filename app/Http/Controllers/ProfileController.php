@@ -30,7 +30,7 @@ class ProfileController extends Controller
 
         $admin = Auth::user();
         
-        $isfollowing = DB::table('follows')->where('following_id', $user->id AND 'follower_id', $admin->id)->count();
+        $isfollowing = DB::table('follows')->where('follower_id', $admin->id)->where('following_id', $user->id)->count();
         $followers = DB::table('follows')->where('following_id', $user->id)->count();
         $following = DB::table('follows')->where('follower_id', $user->id)->count();
         if ($isfollowing) {
@@ -84,14 +84,15 @@ class ProfileController extends Controller
             else {
                 $test=false;
             }
-            $admin = Auth::user();
+            return redirect()->route('profile',['user'=> $user->id]);
+            /*
             return view('profile', [
                     'admin' => $admin,
                     'user' => $user,
                     'test' => $test,
                     'followers' => $followers,
                     'following' => $following,
-                ]);
+                ]);*/
         }
         
         else if ($check['button']==2) {
@@ -122,13 +123,13 @@ class ProfileController extends Controller
             else {
                 $test=false;
             }
-            return view('profile', [
+            return redirect()->route('profile',['user'=> $user->id]);/*, [
                     'admin' => $admin,
                     'user' => $user,
                     'test' => $test,
                     'followers' => $followers,
                     'following' => $following,
-                ]);
+                ]);*/
         }
     }
     public function delete(User $user) {
@@ -149,13 +150,15 @@ class ProfileController extends Controller
             else {
                 $test=false;
             }
+            return redirect()->route('profile',['user'=> $user->id]);
+            /*
             return view('profile', [
                     'admin' => $admin,
                     'user' => $user,
                     'test' => $test,
                     'followers' => $followers,
                     'following' => $following,
-                ]);
+                ]);*/
         }
         else if ($data['button']==2) {
             
