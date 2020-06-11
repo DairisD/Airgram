@@ -50,12 +50,24 @@ class SearchesController extends Controller
         where (plane_name = '$plane' or plane_name is null) and (airport_name = '$airport' or airport_name is null) and (airline_name = '$airline' or airline_name is null)"
         );
         
-         /*
+        /*
         $results = DB::table('images')->get();
         if($plane!=NULL) {
-            $planeName = DB::table('planes')->where('plane_name', $plane)->get('id');
-            $results=$results->where('plane_id', $planeName)->get();
+            $planeName = DB::table('planes')->where('plane_name', $plane)->first('id');
+            $pid=$planeName['id'];
+            dd($pid);
+            
+            $results=$results->where('plane_id', $planeName[0])->get();
         }
+        if($airport!=NULL) {
+            $airportName = DB::table('planes')->where('airport_name', $plane)->get('id');
+            $results=$results->where('plane_id', $airportName)->get();
+        }
+        if($airline!=NULL) {
+            $airlineName = DB::table('planes')->where('airline_name', $plane)->get('id');
+            $results=$results->where('plane_id', $airlineName)->get();
+        }
+        
         dd($results);
         */
         $user = auth()->user();
@@ -74,7 +86,7 @@ class SearchesController extends Controller
             'username' => 'required',
         ]);
 
-        $users = DB::table('users')->where('username', $data['username'])->get()->flatten();
+        $users = DB::table('users')->where('username', $data['username'])->first();
         return view('search', [
             'this_user' =>auth()->user(),
             'users' => $users,

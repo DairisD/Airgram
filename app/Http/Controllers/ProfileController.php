@@ -20,12 +20,13 @@ class ProfileController extends Controller
         right join (select airportq.*, plane_name from planes
         right join (select userq.*, airports.airport_name from airports
         right join (select imageq.*, username, profile_picture from users
-        join (select images.image, images.user_id, images.plane_id, images.airline_id, images.airport_id, images.id as image_id, s.summa from images left join (select image_id, sum(val) as summa FROM votes group by (image_id)) as s on images.id = s.image_id) as imageq
+        join (select images.image, images.user_id, images.plane_id, images.airline_id, images.airport_id, images.id as image_id, images.created_at as created_at, s.summa from images left join (select image_id, sum(val) as summa FROM votes group by (image_id)) as s on images.id = s.image_id) as imageq
         on users.id = imageq.user_id) as userq
         on airports.id = userq.airport_id) as airportq
         on airportq.plane_id = planes.id) as planeq
         on airlines.id = planeq.airline_id) as final
-        where(user_id = '$user->id')"
+        where(user_id = '$user->id')
+        order by created_at DESC"
         );
 
         $admin = Auth::user();
