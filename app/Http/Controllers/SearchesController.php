@@ -32,7 +32,7 @@ class SearchesController extends Controller
         $plane = request('plane');
         $airport = request('airport');
         $airline = request('airline');
-
+        
         $results = DB::select("select * from (select planeq.*, airline_name from airlines
         right join (select airportq.*, plane_name from planes
         right join (select userq.*, airports.airport_name from airports
@@ -44,9 +44,17 @@ class SearchesController extends Controller
         on airlines.id = planeq.airline_id) as final
         where (plane_name = '$plane' or plane_name is null) and (airport_name = '$airport' or airport_name is null) and (airline_name = '$airline' or airline_name is null)"
         );
-
-
+        
+         /*
+        $results = DB::table('images')->get();
+        if($plane!=NULL) {
+            $planeName = DB::table('planes')->where('plane_name', $plane)->get('id');
+            $results=$results->where('plane_id', $planeName)->get();
+        }
+        dd($results);
+        */
         $user = auth()->user();
+        
 
 
         return view('search', [

@@ -42,6 +42,10 @@ Route::get('/ban', function() {
     return view('ban');
 });
 
+Route::get('banned', 'BannedController@index')->name('banned');
+Route::patch('banned', 'BannedController@edit');
+Route::post('banned', 'BannedController@search');
+
 Route::get('/following', function() {
     return view('following');
 });

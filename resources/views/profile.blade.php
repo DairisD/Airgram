@@ -157,8 +157,7 @@
                             <p style="font-size: 20px; margin:0px;">Ban User</p>
                         </button>
                     </form>
-                    @endif
-                    @if ($user->role == '2')
+                    @elseif ($user->role == '2')
                     <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
                         @csrf
                         @method('PATCH')

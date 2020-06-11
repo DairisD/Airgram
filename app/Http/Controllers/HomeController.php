@@ -26,7 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        if ($user->role==2) {
+            $message = 'Your account has been suspended. Please contact administrator.';
+            auth()->logout();
+            return redirect()->route('login')->withMessage($message);
+        }
         $followers = DB::table('follows')->where('following_id', Auth::id())->count();
         $following = DB::table('follows')->where('follower_id', Auth::id())->count();
 

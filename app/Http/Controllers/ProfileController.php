@@ -75,61 +75,27 @@ class ProfileController extends Controller
                 $Follow->following_id=$user->id;
                 $Follow->save();
             }
-            $isfollowing = DB::table('follows')->where('follower_id', $viewer->id)->where('following_id', $user->id)->count();
-            $followers = DB::table('follows')->where('following_id', $user->id)->count();
-            $following = DB::table('follows')->where('follower_id', $user->id)->count();
-            if ($isfollowing) {
-                $test=true;
-            }
-            else {
-                $test=false;
-            }
             return redirect()->route('profile',['user'=> $user->id]);
-            /*
-            return view('profile', [
-                    'admin' => $admin,
-                    'user' => $user,
-                    'test' => $test,
-                    'followers' => $followers,
-                    'following' => $following,
-                ]);*/
         }
         
         else if ($check['button']==2) {
-            $admin= Auth::user();
+            $viewer= Auth::user();
             if ($user->role==0) {
                 $data = request()->validate([
                 'role' => '',
                 ]);
-                $data['role']=1;
+                $data['role']=2;
                 DB::table('users')->where('id',$user->id)->update($data);
                 
-                //$user->role->update($data);
             }
-            else {
+            elseif ($user->role==2) {
                 $data = request()->validate([
                 'role' => '',
                 ]);
                 $data['role']=0;
                 DB::table('users')->where('id',$user->id)->update($data);
-                //$user->role->update($data);
             }
-            $isfollowing = DB::table('follows')->where('follower_id', $admin->id AND 'following_id', $user->id)->count();
-            $followers = DB::table('follows')->where('following_id', $user->id)->count();
-            $following = DB::table('follows')->where('follower_id', $user->id)->count();
-            if ($isfollowing) {
-                $test=true;
-            }
-            else {
-                $test=false;
-            }
-            return redirect()->route('profile',['user'=> $user->id]);/*, [
-                    'admin' => $admin,
-                    'user' => $user,
-                    'test' => $test,
-                    'followers' => $followers,
-                    'following' => $following,
-                ]);*/
+            return redirect()->route('profile',['user'=> $user->id]);
         }
     }
     public function delete(User $user) {
@@ -139,30 +105,8 @@ class ProfileController extends Controller
         ]);
         if ($data['button']==1) {
             Follow::where('follower_id', $admin->id)->where('following_id', $user->id)->delete();
-
-            $isfollowing = DB::table('follows')->where('follower_id', $admin->id)->where('following_id', $user->id)->count();
-            $followers = DB::table('follows')->where('following_id', $user->id)->count();
-            $following = DB::table('follows')->where('follower_id', $user->id)->count();
-            //dd(DB::table('follows')->where('follower_id', $admin->id AND 'following_id', $user->id)->count());
-            if ($isfollowing) {
-                $test=true;
-            }
-            else {
-                $test=false;
-            }
             return redirect()->route('profile',['user'=> $user->id]);
-            /*
-            return view('profile', [
-                    'admin' => $admin,
-                    'user' => $user,
-                    'test' => $test,
-                    'followers' => $followers,
-                    'following' => $following,
-                ]);*/
+
         }
-        else if ($data['button']==2) {
-            
-        }
-        
     }
 }
