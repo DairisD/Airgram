@@ -79,13 +79,13 @@
                 <div class="p-2" style="font-size: 20px;">&#64;{{ $result->username }}</div>
             </div>
             <div class="col d-flex justify-content-center">
-                <button class="d-flex align-content-center p-2" style="border: none; background-color: #ebebeb;">
+                <a href="/comments/{{ $result->image_id }}" class="d-flex align-items-center p-2" style="border: none; background-color: #ebebeb;">
                     <svg class="bi bi-chat-square-dots mr-2" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                         <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
-                    <div style="font-size: 20px;">Comment<div>
-                </button>
+                    <p class="mb-0" style="font-size: 20px;">Comment</p>
+                </a>
             </div>
         </div>
         <div class="row p-2" style="background-color: #ebebeb">

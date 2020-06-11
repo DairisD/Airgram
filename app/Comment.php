@@ -8,7 +8,6 @@ class Comment extends Model
 {
     protected $fillable = ['comment', 'user_id', 'image_id'];
     protected $primaryKey = 'id';
-    protected $table = 'advisor_check';
 
     public function user() { // FK relationship
         return $this->belongsTo('App\User', 'user_id');

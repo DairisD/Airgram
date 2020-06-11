@@ -28,6 +28,7 @@ Route::get('/search/users', 'SearchesController@users');
 
 Route::get('/comments/{id}', 'CommentsController@index');
 Route::post('/comments/{id}', 'CommentsController@create');
+Route::post('/comments/delete/{post}/{id}', 'CommentsController@delete');
 
 
 Route::get('/banned', function() {

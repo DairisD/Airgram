@@ -32,7 +32,7 @@
 @if($results)
 @foreach($results as $result)
 <div class="container mt-3" style="background-color: #eeeeee">
-    <div class="row">
+    <div class="row d-flex">
         <div class="col-4 pt-2 pb-2 d-flex justify-content-center align-items-center flex-wrap" style="border-right: 1px solid #969696">
             <div class="col-4 d-flex justify-content-center">
                 <img src="{{ $result->profile_picture }}" style="border-radius: 100%; max-height:50px;">
@@ -41,9 +41,21 @@
                 <h5 class="ml-2 mb-0">&#64;{{ $result->username }}</h5>
             </div>
         </div>
+        @if($user->role == 1)
+        <div class="col-6 d-flex align-items-center">
+            <p class="mb-2 mt-2" style="font-size: 15px;">{{ $result->comment }}</p>
+        </div>
+        <div class="col-2 d-flex align-items-center justify-content-center">
+            <form action="/comments/delete/{{ $result->image_id }}/{{$result->id}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-outline-danger w-40 ml-1">Delete</button>
+            </form>
+        </div>
+        @else
         <div class="col-8 d-flex align-items-center">
             <p class="mb-2 mt-2" style="font-size: 15px;">{{ $result->comment }}</p>
         </div>
+        @endif
     </div>
 </div>
 @endforeach

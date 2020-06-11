@@ -13,7 +13,7 @@ class CommentsController extends Controller
     public function index($id) {
 
         $post_id = $id;
-
+        $user = Auth::user();
         $comments = DB::select("select sel.*, username, profile_picture from users
         join (Select * from comments where image_id = '$id') as sel
         on users.id = sel.user_id");
@@ -21,6 +21,7 @@ class CommentsController extends Controller
         return view('comments', [
             'id' => $post_id,
             'results' => $comments,
+            'user' => $user,
         ]);
     }
 
@@ -31,11 +32,20 @@ class CommentsController extends Controller
         ]);
 
         $user = Auth::user();
-
+        
         $comment = $text['message'];
 
         DB::insert("insert into comments (user_id, image_id, comment) values ('$user->id', '$id', '$comment')");
 
         return Redirect::to('/comments/'.$id);
+    }
+
+    public function delete($post, $id) {
+        $comment = $id;
+
+        $deleteable = Comment::find($id);
+        $deleteable->delete();
+
+        return Redirect::to('/comments/'.$post);
     }
 }
