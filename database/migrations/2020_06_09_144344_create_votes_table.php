@@ -17,7 +17,7 @@ class CreateVotesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('image_id')->constrained('images');
-            $table->integer('value');
+            $table->integer('val');
         });
     }
 
