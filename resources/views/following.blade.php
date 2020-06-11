@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
-            <a href="/profile/{{ $follow->follower_id }}" class="d-flex w-75">
+            <a href="/profile/{{ $follow->follow_id }}" class="d-flex w-75">
                 <button type="button" class="btn btn-outline-dark w-100">View Profile</button>
             </a>
         </div>

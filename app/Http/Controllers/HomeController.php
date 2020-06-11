@@ -54,4 +54,13 @@ class HomeController extends Controller
             'following' => $following,
         ]);
     }
+
+    public function remove($post) {
+        $user = Auth::user();
+
+        $deleteable = Image::find($post);
+        $deleteable->delete();
+
+        return Redirect::to('/home');
+    }
 }
