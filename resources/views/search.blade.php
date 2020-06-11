@@ -129,8 +129,10 @@
                 <h5 class="ml-2 mb-0">{{ $users[0]->username }}</h5>
             </div>
             <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
-                <button type="button" class="btn btn-outline-dark w-40 mr-1">View Profile</button>
+                <a href="/profile/{{$users[0]->id}}"><button type="button" class="btn btn-outline-dark w-40 mr-1">View Profile</button></a>
+                @if($this_user->role == 1)
                 <button type="button" class="btn btn-outline-danger w-40 ml-1">Block</button>
+                @endif
             </div>
         </div>
     </div>
