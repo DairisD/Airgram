@@ -52,10 +52,13 @@ class ProfileController extends Controller
             'follower_id' => '',
             'following_id' => '',
         ]);
-        $Follow = new Follow;
-        $Follow->follower_id=$viewer->id;
-        $Follow->following_id=$user->id;
-        $Follow->save();
+        if (!DB::table('follows')->where('following_id', $user->id AND 'follower_id', $admin->id)->count()) {
+            $Follow = new Follow;
+            $Follow->follower_id=$viewer->id;
+            $Follow->following_id=$user->id;
+            $Follow->save();
+        }
+        
         //dd($data);
         $isfollowing = DB::table('follows')->where('following_id', $user->id AND 'follower_id', $admin->id)->count();
         $followers = DB::table('follows')->where('following_id', $user->id)->count();

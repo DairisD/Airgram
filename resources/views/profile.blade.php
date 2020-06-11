@@ -70,7 +70,7 @@
                 </div>
                 <div class="row w-100 d-flex justify-content-center mt-2">
                     @if ($test==false)  
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
                         @csrf
                         @method('PATCH')
                             <button type='submit' class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
@@ -83,7 +83,7 @@
                     </form>
                     @endif
                     @if ($test==true)
-                        <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data" class="w-100 d-flex justify-content-center align-items-center p-1">
                         @csrf
                         @method('POST')
                             <button type='submit' class="w-75 d-flex justify-content-center align-items-center p-1" style="border: 2px solid #adadad; border-radius: 10px;">
