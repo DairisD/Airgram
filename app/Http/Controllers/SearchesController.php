@@ -63,6 +63,7 @@ class SearchesController extends Controller
 
         $users = DB::table('users')->where('username', $data['username'])->get()->flatten();
         return view('search', [
+            'this_user' =>auth()->user(),
             'users' => $users,
         ]);
     }

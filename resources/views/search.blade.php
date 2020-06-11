@@ -6,7 +6,7 @@
 
 <div class="row d-flex justify-content-center pt-3 pl-3 pr-3">
     <div class="col-2">
-        <a href="{{{ URL::route('home') }}}" type="button" class="btn btn-outline-secondary">Back</a>
+        <a href="{{ URL::route('home') }}" type="button" class="btn btn-outline-secondary">Back</a>
     </div>
     <div class="col-8 d-flex justify-content-center">
         <h2 class="mb-0 mt-2">Search Posts</h2>
@@ -129,8 +129,10 @@
                 <h5 class="ml-2 mb-0">{{ $users[0]->username }}</h5>
             </div>
             <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
-                <button type="button" class="btn btn-outline-dark w-40 mr-1">View Profile</button>
+                <a href="/profile/{{$users[0]->id}}"><button type="button" class="btn btn-outline-dark w-40 mr-1">View Profile</button></a>
+                @if($this_user->role == 1)
                 <button type="button" class="btn btn-outline-danger w-40 ml-1">Block</button>
+                @endif
             </div>
         </div>
     </div>
