@@ -41,7 +41,7 @@ class SearchesController extends Controller
         $results = DB::select("select * from (select planeq.*, airline_name from airlines
         right join (select airportq.*, plane_name from planes
         right join (select userq.*, airports.airport_name from airports
-        right join (select imageq.*, username, profile_picture from users
+        right join (select imageq.*, id, username, profile_picture from users
         join (select images.image, images.user_id, images.plane_id, images.airline_id, images.airport_id, images.id as image_id, s.summa from images left join 			(select image_id, sum(val) as summa FROM votes group by (image_id)) as s on images.id = s.image_id) as imageq
         on users.id = imageq.user_id) as userq
         on airports.id = userq.airport_id) as airportq
@@ -49,27 +49,6 @@ class SearchesController extends Controller
         on airlines.id = planeq.airline_id) as final
         where (plane_name = '$plane' or plane_name is null) and (airport_name = '$airport' or airport_name is null) and (airline_name = '$airline' or airline_name is null)"
         );
-        
-        /*
-        $results = DB::table('images')->get();
-        if($plane!=NULL) {
-            $planeName = DB::table('planes')->where('plane_name', $plane)->first('id');
-            $pid=$planeName['id'];
-            dd($pid);
-            
-            $results=$results->where('plane_id', $planeName[0])->get();
-        }
-        if($airport!=NULL) {
-            $airportName = DB::table('planes')->where('airport_name', $plane)->get('id');
-            $results=$results->where('plane_id', $airportName)->get();
-        }
-        if($airline!=NULL) {
-            $airlineName = DB::table('planes')->where('airline_name', $plane)->get('id');
-            $results=$results->where('plane_id', $airlineName)->get();
-        }
-        
-        dd($results);
-        */
 
         $user = auth()->user();
         
