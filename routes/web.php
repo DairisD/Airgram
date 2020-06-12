@@ -44,9 +44,6 @@ Route::get('blocked', 'BlockController@index')->name('blocked');
 Route::patch('blocked', 'BlockController@edit');
 Route::post('blocked', 'BlockController@search');
 
-Route::get('/ban', function() {
-    return view('ban');
-});
 
 Route::get('/following/{user}', 'FollowingController@index');
 Route::get('/followers/{user}', 'FollowersController@index');

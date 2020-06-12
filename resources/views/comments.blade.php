@@ -41,7 +41,7 @@
                 <h5 class="ml-2 mb-0">&#64;{{ $result->username }}</h5>
             </div>
         </div>
-        @if($user->role == 1)
+        @if($user->role == 1 || $user->id == $result->user_id)
         <div class="col-6 d-flex align-items-center">
             <p class="mb-2 mt-2" style="font-size: 15px;">{{ $result->comment }}</p>
         </div>
