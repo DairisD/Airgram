@@ -67,7 +67,6 @@ class SearchesController extends Controller
         ]);
 
         
-        dd($data);
 
         $users = DB::table('users')->where('username', $data['username'])->first();
         return view('search', [
