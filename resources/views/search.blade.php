@@ -117,8 +117,11 @@
             </div>
         </div>
         @if($user->role == '1')
-        <div class="row">    
-            <button type="button" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+        <div class="row">
+            <form action="/search/{{ $result->image_id }}" method="POST" class="w-100">
+                @csrf 
+                <button type="submit" class="btn btn-danger d-flex align-items-center justify-content-center p-2 col-12 w-100" style="font-size: 20px">Remove Post</button>
+            </form>
         </div>
         @endif
     </div>

@@ -10,6 +10,7 @@ use App\Image;
 use App\Airport;
 use App\Airline;
 use DB;
+use Redirect;
 
 class SearchesController extends Controller
 {
@@ -61,5 +62,12 @@ class SearchesController extends Controller
             'this_user' =>auth()->user(),
             'users' => $users,
         ]);
+    }
+
+    public function delete($image) {
+        $deleteable = Image::findOrFail($image);
+        $deleteable->delete();
+
+        return Redirect::back();
     }
 }

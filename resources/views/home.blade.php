@@ -87,8 +87,8 @@
             <div class="col-sm-1"></div>
             <div class="col-4">
             <div class="container pb-3" style="background-color: #eeeeee">
-                <div class="row d-flex align-items-center justify-content-md-center" style="height: 150px; text-align:center">
-                        <img src="../{{$user->profile_picture }}" class="rounded-circle h-75">
+                <div class="row d-flex align-items-center justify-content-center" style="height: 150px">
+                        <img src="../{{$user->profile_picture }}" class="h-75" style="border-radius: 100%;">
                 </div>
                 <div class="row d-flex align-items-center">
                     <div class="ml-3 mt-3 w-100">
