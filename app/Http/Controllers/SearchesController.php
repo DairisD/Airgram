@@ -42,7 +42,7 @@ class SearchesController extends Controller
         right join (select airportq.*, plane_name from planes
         right join (select userq.*, airports.airport_name from airports
         right join (select imageq.*, id, username, profile_picture from users
-        join (select images.image, images.user_id, images.plane_id, images.airline_id, images.airport_id, images.id as image_id, s.summa from images left join 			(select image_id, sum(val) as summa FROM votes group by (image_id)) as s on images.id = s.image_id) as imageq
+        join (select images.image, images.user_id, images.plane_id, images.airline_id, images.airport_id, images.id as image_id, s.summa from images left join (select image_id, sum(val) as summa FROM votes group by (image_id)) as s on images.id = s.image_id) as imageq
         on users.id = imageq.user_id) as userq
         on airports.id = userq.airport_id) as airportq
         on airportq.plane_id = planes.id) as planeq
@@ -65,6 +65,9 @@ class SearchesController extends Controller
         $data = request()->validate([
             'username' => 'required',
         ]);
+
+        
+        dd($data);
 
         $users = DB::table('users')->where('username', $data['username'])->first();
         return view('search', [

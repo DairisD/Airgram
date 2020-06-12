@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vote extends Model
 {
+    public $timestamps = false;
+
     public function user() { // FK relationship
         return $this->belongsTo('App\User', 'user_id');
     }
