@@ -32,13 +32,7 @@ Route::post('/comments/{id}', 'CommentsController@create');
 Route::post('/comments/delete/{post}/{id}', 'CommentsController@delete');
 
 
-Route::get('/banned', function() {
-    return view('banned');
-});
 
-Route::get('/blocked', function() {
-    return view('blocked');
-});
 
 Route::get('blocked', 'BlockController@index')->name('blocked');
 Route::patch('blocked', 'BlockController@edit');
@@ -52,16 +46,12 @@ Route::get('banned', 'BannedController@index')->name('banned');
 Route::patch('banned', 'BannedController@edit');
 Route::post('banned', 'BannedController@search');
 
-Route::get('/edit', function() {
-    return view('edit');
-});
+
 
 Route::get('/edit/{user}', 'EditController@edit');
 Route::patch('/edit/{user}', 'EditController@update');
 
-Route::get('/profile', function() {
-    return view('profile');
-});
+
 
 Route::post('profile/{user}/{image}', 'ProfileController@remove');
 Route::get('profile/{user}', 'ProfileController@index')->name('profile');
