@@ -7,7 +7,7 @@
     </div>
     <div class="col-10"></div>
 </div>
-@if ($blocked == true)
+@if ($blocked == true && $admin->role==0)
 <div>
     <div class="container mt-3 h-100 d-flex flex-column align-items-center">
     <h5 class="display-3" style="color: #cc0000">You've been blocked by this user!</h5>
